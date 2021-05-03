@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Calculator
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<h2>Daily Calorie Intake Calculator</h2>
+
+  <ion-list>
+  <ion-item>
+    <ion-label color="dark"> Gender: </ion-label>
+    <ion-select interface = "popover" [(ngModel)]="gender">
+      <ion-option value="m">Male</ion-option>
+      <ion-option value="f">Female</ion-option>
+    </ion-select>
+</ion-item>
+</ion-list>
+<ion-item>
+  <ion-label>Height in centimeter: </ion-label>
+  <ion-input type="number" [(ngModel)]="height"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label>Weight in kilograms: </ion-label>
+  <ion-input type="number" [(ngModel)]="weight"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label>Age: </ion-label>
+  <ion-input type="number" [(ngModel)]="age"></ion-input>
+</ion-item>
+  
+  <ion-list>
+  <ion-item>
+    <ion-label color="dark"> Physical Activity Level </ion-label>
+    <ion-select  interface ="popover" [(ngModel)]="activitylevel">
+      <ion-option value="1.2">Sedentary lifestyle (little or no exercise)
+      </ion-option>
+      <ion-option value="1.4">Slightly active lifestyle (light exercise or sports 1-2 days/week):</ion-option>
+      <ion-option value="1.6">Moderately active lifestyle (moderate exercise or sports 2-3 days/week)
+      </ion-option>
+      <ion-option value="1.75">Very active lifestyle (hard exercise or sports 4-5 days/week)
+      </ion-option>
+      <ion-option value="2.0">Extra active lifestyle (very hard exercise, physical job or sports 6-7 days/week)
+      </ion-option>
+      <ion-option value="2.3">Professional athlete
+      </ion-option>
+    </ion-select>
+</ion-item>
+</ion-list>
+
+
+<button ion-button color="secondary" (click)="calculateintake()">
+  CALCULATE
+  
+</button>
+
+<ion-item *ngIf="intake">
+  <h2>Daily Calorie Intake: {{intake}} kcal/day </h2>
+  
+  <h2>Carbs: {{carbs}} kcal</h2>
+  <h2>Protein: {{protein}} kcal </h2>
+  <h2>Fat:  {{fat}} kcal </h2>
+
+</ion-item>
+
+</ion-content>
